@@ -23,7 +23,7 @@ export const jobsData = [
         logoStyle: "bg-white border",
         experience: "1-3 yr Exp",
         workType: "Onsite",
-        salary: "4",
+        salary: "12 LPA",
         location: "Mumbai",
         jobType: "Part Time",
         salaryRange: 12,

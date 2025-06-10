@@ -1,60 +1,107 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from "react"
 import Image from "next/image"
 import logo from "@/assets/logo.png"
 import Link from "next/link"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import CreateJobForm from "@/components/createJob"
-import { Button } from './ui/button'
+import { Button } from "./ui/button"
+import { Menu, X } from "lucide-react"
 
 function Navbar() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen)
+    }
+
     return (
-        <header className="py-5 bg-white shadow-sm w-fit mx-auto rounded-full">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-                <div className="flex justify-center items-center space-x-5">
-                    {/* Logo */}
-                    <div className="flex items-center">
-                        <Image src={logo} alt="Job Board Logo" className="h-10 w-9" />
+        <header className="w-full bg-white shadow-md md:w-fit md:mx-auto md:rounded-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div className="flex justify-between md:justify-center items-center gap-4">
+                    <div className="flex items-center space-x-2">
+                        <Image src={logo} alt="Job Board Logo" className="h-10 w-10" />
                     </div>
 
-                    {/* Navigation */}
-                    <nav className="hidden md:flex space-x-4">
-                        <Link href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 text-md font-medium">
+                    <nav className="hidden md:flex items-center space-x-6">
+                        <Link href="#" className="text-gray-900 hover:text-gray-700 text-md font-medium">
                             Home
                         </Link>
-                        <Link href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 text-md font-medium">
+                        <Link href="#" className="text-gray-900 hover:text-gray-700 text-md font-medium">
                             Find Jobs
                         </Link>
-                        <Link href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 text-md font-medium">
+                        <Link href="#" className="text-gray-900 hover:text-gray-700 text-md font-medium">
                             Find Talents
                         </Link>
-                        <Link href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 text-md font-medium">
+                        <Link href="#" className="text-gray-900 hover:text-gray-700 text-md font-medium">
                             About us
                         </Link>
-                        <Link href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 text-md font-medium">
+                        <Link href="#" className="text-gray-900 hover:text-gray-700 text-md font-medium">
                             Testimonials
                         </Link>
                     </nav>
 
-                    {/* Create Jobs Button */}
-                    <Dialog>
-                        <DialogTrigger>
-                            <Button
-                                size="text"
-                                className="bg-gradient-to-b from-[#A128FF] to-[#6100AD] text-md text-white px-4 py-2 cursor-pointer rounded-full"
-                            >
-                                Create Jobs
-                            </Button>
+                    {/* Create Job Button */}
+                    <div className="hidden md:block">
+                        <Dialog>
+                            <DialogTrigger>
+                                <Button className="bg-gradient-to-b from-[#A128FF] to-[#6100AD] text-md text-white px-4 py-2 cursor-pointer rounded-full">
+                                    Create Jobs
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="w-[90vw] max-w-3xl h-fit">
+                                <div className="text-center mb-4">
+                                    <h1 className="text-2xl font-bold text-gray-900">Create Job Opening</h1>
+                                </div>
+                                <CreateJobForm />
+                            </DialogContent>
+                        </Dialog>
+                    </div>
 
-                        </DialogTrigger>
-                        <DialogContent className="w-[60vw] h-fit" >
-                            {/* Header */}
-                            <div className="text-center">
-                                <h1 className="text-2xl font-bold text-gray-900">Create Job Opening</h1>
-                            </div>
-                            <CreateJobForm />
-                        </DialogContent>
-                    </Dialog>
+                    {/* Hamburger Icon */}
+                    <div className="md:hidden">
+                        <button onClick={toggleMobileMenu}>
+                            {mobileMenuOpen ? <X className="h-6 w-6 text-gray-900" /> : <Menu className="h-6 w-6 text-gray-900" />}
+                        </button>
+                    </div>
                 </div>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden mt-4 space-y-6">
+                        <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
+                            Home
+                        </Link>
+                        <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
+                            Find Jobs
+                        </Link>
+                        <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
+                            Find Talents
+                        </Link>
+                        <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
+                            About us
+                        </Link>
+                        <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
+                            Testimonials
+                        </Link>
+
+                        {/* Mobile Create Job Button */}
+                        <Dialog>
+                            <DialogTrigger>
+                                <Button className="w-full bg-gradient-to-b from-[#A128FF] to-[#6100AD] text-white px-4 py-2 rounded-full">
+                                    Create Jobs
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="w-[90vw] max-w-3xl h-fit">
+                                <div className="text-center mb-4">
+                                    <h1 className="text-2xl font-bold text-gray-900">Create Job Opening</h1>
+                                </div>
+                                <CreateJobForm />
+                            </DialogContent>
+                        </Dialog>
+                    </div>
+                )}
             </div>
         </header>
     )

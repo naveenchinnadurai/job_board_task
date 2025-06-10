@@ -48,7 +48,7 @@ export default function JobBoard() {
             <Navbar />
             {/* Search and Filters */}
             <div className=" rounded-lg border-0 shadow-xl shadow-slate-100 mb-3 mt-2 px-10 py-5">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
                     {/* Search Input */}
                     <div className="relative flex items-center">
                         <Search className="absolute left-3 top-6 h-4 w-4 text-gray-400" />
@@ -56,7 +56,7 @@ export default function JobBoard() {
                             placeholder="Search By Job Title, Role"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="p-8 shadow-none pl-10 border-none focus:outline-none focus:ring-none text-md"
+                            className="p-8 shadow-none focus-visible:ring-0 pl-10 border-none focus:outline-none focus:ring-none text-md"
                         />
                         <div className="h-10 w-0.5  bg-[#EAEAEA]"></div>
                     </div>
@@ -127,7 +127,7 @@ export default function JobBoard() {
 
 
                 {/* Job Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {
                         filteredJobs.map((job) => (
                             <Card key={job.id} className="bg-white border-none shadow-sm hover:shadow-md transition-shadow duration-200">
@@ -148,7 +148,7 @@ export default function JobBoard() {
                                     <h3 className="text-xl font-semibold text-gray-900 mb-3">{job.title}</h3>
 
                                     {/* Job Details */}
-                                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                                    <div className="flex items-center flex-wrap gap-4 text-sm text-gray-600 mb-4">
                                         <div className="flex items-center gap-1">
                                             <span className="text-gray-400">
                                                 <UserPlus size={18} />
@@ -165,7 +165,7 @@ export default function JobBoard() {
                                             <span className="text-gray-400">
                                                 <Layers size={18} />
                                             </span>
-                                            <span className="text-sm">{job.salary} LPA</span>
+                                            <span className="text-sm">{job.salary}</span>
                                         </div>
                                     </div>
                                     {/* Job Description */}
