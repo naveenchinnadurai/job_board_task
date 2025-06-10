@@ -1,18 +1,18 @@
 "use client"
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { CalendarIcon, ChevronDown, ArrowRight, ArrowUpDown, ChevronsRight, ChevronsDown } from "lucide-react"
-import { format } from "date-fns"
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Calendar } from "@/components/ui/calendar"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import { cn } from "@/lib/utils"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { format } from "date-fns"
+import { ArrowUpDown, CalendarIcon, ChevronsDown, ChevronsRight } from "lucide-react"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
 // Form validation schema
 const jobFormSchema = z.object({
