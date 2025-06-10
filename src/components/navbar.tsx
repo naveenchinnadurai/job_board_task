@@ -41,8 +41,6 @@ function Navbar() {
                             Testimonials
                         </Link>
                     </nav>
-
-                    {/* Create Job Button */}
                     <div className="hidden md:block">
                         <Dialog>
                             <DialogTrigger>
@@ -59,7 +57,6 @@ function Navbar() {
                         </Dialog>
                     </div>
 
-                    {/* Hamburger Icon */}
                     <div className="md:hidden">
                         <button onClick={toggleMobileMenu}>
                             {mobileMenuOpen ? <X className="h-6 w-6 text-gray-900" /> : <Menu className="h-6 w-6 text-gray-900" />}
@@ -67,9 +64,8 @@ function Navbar() {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 space-y-6">
+                    <div className="md:hidden mt-4 space-y-6 absolute top-16 right-0 w-full z-20 p-5 pb-7 bg-white shadow-md">
                         <Link href="#" className="block text-gray-900 hover:text-gray-700 font-medium">
                             Home
                         </Link>
@@ -86,15 +82,14 @@ function Navbar() {
                             Testimonials
                         </Link>
 
-                        {/* Mobile Create Job Button */}
                         <Dialog>
                             <DialogTrigger>
                                 <Button className="w-full bg-gradient-to-b from-[#A128FF] to-[#6100AD] text-white px-4 py-2 rounded-full">
                                     Create Jobs
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="w-[90vw] max-w-3xl h-fit">
-                                <div className="text-center mb-4">
+                            <DialogContent className="h-screen md:h-fit  md:w-[90vw] w-full max-w-3xl overflow-auto">
+                                <div className="text-center mb-0 md:mb-4">
                                     <h1 className="text-2xl font-bold text-gray-900">Create Job Opening</h1>
                                 </div>
                                 <CreateJobForm />

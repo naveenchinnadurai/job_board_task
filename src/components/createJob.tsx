@@ -105,7 +105,7 @@ export default function CreateJobForm() {
                 <FormItem>
                   <FormLabel className="text-base font-medium text-gray-900">Job Title</FormLabel>
                   <FormControl>
-                    <Input placeholder="Full Stack Developer" className="h-12 text-base" {...field} />
+                    <Input placeholder="Full Stack Developer" className="h-9 md:h-12 text-base" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,7 +119,7 @@ export default function CreateJobForm() {
                 <FormItem>
                   <FormLabel className="text-base font-medium text-gray-900">Company Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Amazon, Microsoft, Swiggy" className="h-12 text-base" {...field} />
+                    <Input placeholder="Amazon, Microsoft, Swiggy" className="h-9 md:h-12 text-base w-full" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -137,7 +137,7 @@ export default function CreateJobForm() {
                   <FormLabel className="text-base font-medium text-gray-900">Location</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="py-6 w-full text-base">
+                      <SelectTrigger className="py-2 md:py-6 w-full text-base">
                         <SelectValue placeholder="Choose Preferred Location" />
                       </SelectTrigger>
                     </FormControl>
@@ -162,7 +162,7 @@ export default function CreateJobForm() {
                   <FormLabel className="text-base font-medium text-gray=500">Job Type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="py-6 w-full text-base">
+                      <SelectTrigger className="py-3 md:py-6 w-full text-base">
                         <SelectValue placeholder="Select Job Type" />
                       </SelectTrigger>
                     </FormControl>
@@ -191,9 +191,9 @@ export default function CreateJobForm() {
                   render={({ field }) => (
                     <FormItem className="relative">
                       <FormControl>
-                        <Input placeholder="₹0" className="h-12 text-base px-8" {...field} />
+                        <Input placeholder="₹0" className="h-9 md:h-12 text-base px-8" {...field} />
                       </FormControl>
-                      <ArrowUpDown className="absolute left-2 top-3.5 text-zinc-600" size={18} />
+                      <ArrowUpDown className="absolute left-2 top-2 md:top-3.5 text-zinc-600" size={18} />
                       <FormMessage />
                     </FormItem>
                   )}
@@ -204,10 +204,10 @@ export default function CreateJobForm() {
                   render={({ field }) => (
                     <FormItem className="relative">
                       <FormControl>
-                        <Input placeholder="₹12,00,000" className="px-8 h-12 text-base" {...field} />
+                        <Input placeholder="₹12,00,000" className="px-8 h-9 md:h-12 text-base" {...field} />
                       </FormControl>
                       <FormMessage />
-                      <ArrowUpDown className="absolute left-2 top-3.5 text-zinc-500" size={18} />
+                      <ArrowUpDown className="absolute left-2 top-2 md:top-3.5 text-zinc-500" size={18} />
                     </FormItem>
                   )}
                 />
@@ -226,7 +226,7 @@ export default function CreateJobForm() {
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full h-12 text-left font-normal justify-between",
+                            "w-full h-9 md:h-12 text-left font-normal justify-between",
                             !field.value && "text-muted-foreground",
                           )}
                         >
